@@ -1,0 +1,11 @@
+home:
+    path:     /
+    defaults: { _controller: FrontBundle:Home:index }
+
+my_resume:
+    path:     /myresume
+    defaults: { _controller: FrontBundle:Home:resume }
+
+coba_ajax:
+    path:     /cobaajax
+    defaults: { _controller: FrontBundle:Home:cobaajax }

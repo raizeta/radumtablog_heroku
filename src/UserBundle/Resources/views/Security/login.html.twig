@@ -1,0 +1,34 @@
+{% extends "FrontBundle::layout.html.twig" %}
+{% block kiri %}
+<div class="span8">
+    <div class="span6">
+        <div class="blog-item well">
+			<form  class="form-inline" role ="form" action="{{ path("fos_user_security_check") }}" method="post">
+				<div class="form-group">
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+					<input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username Or Email" required="required" />
+					
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="password" id="password" name="_password" required="required" placeholder="Password" />
+				</div>
+				<div class="form-group">
+		                <label>
+		                  <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> Remember Me
+		                </label>                      
+	            </div><!-- /.col -->
+	            <div class="form-group">
+		              <button type="submit" class="btn btn-primary">Sign in</button>
+	            </div>
+			</form>
+		</div>
+	</div>
+	<div class="span5">
+        <div class="blog-item well">
+        	<a href="{{url('connect_github')}}" class="btn btn-primary">Connect With Github</a>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

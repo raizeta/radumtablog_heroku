@@ -1,0 +1,38 @@
+{{ form_start(form, { 'attr': {'class': 'form-inline','role':'form'} }) }}
+	<div class="form-group">
+		<label class="col-md-4 control-label">Username</label>
+		<div class="col-md-6">
+			{{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+		</div>
+	</div>
+    <div class="form-group">
+		<label class="col-md-4 control-label">Email</label>
+		<div class="col-md-6">
+			{{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+		</div>
+	</div>	
+	<div class="form-group">
+		<label class="col-md-4 control-label">Password</label>
+		<div class="col-md-6">
+			{{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-4 control-label">Retype-Password</label>
+		<div class="col-md-6">
+			{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-4 control-label">Nama User</label>
+		<div class="col-md-6">
+			{{ form_widget(form.namauser, { 'attr': {'class': 'form-control'} }) }}
+		</div>
+	</div>
+    <hr/>	
+	<div class="form-group">
+		<div class="col-md-6 col-md-offset-4">
+			<button type="submit" id="_submit" name="_submit" class="btn btn-primary">Submit</button>
+		</div>
+	</div>		    
+{{ form_end(form) }}

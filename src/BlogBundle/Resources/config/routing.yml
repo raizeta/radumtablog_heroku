@@ -1,0 +1,21 @@
+blog_all:
+    path:     /
+    defaults: { _controller: BlogBundle:Post:index }
+
+blog_show:
+    path:     /show/{slug}
+    defaults: { _controller: BlogBundle:Post:show }
+
+blog_show_by_author:
+    path:     /show/author/{penulis}
+    defaults: { _controller: BlogBundle:Post:showByPenulis }
+
+blog_show_by_kategori:
+    path:     /show/kategori/{kategori}
+    defaults: { _controller: BlogBundle:Post:showByKategori }
+
+blog_insert_komentar:
+    path:     /insert/komentar/{slug}
+    defaults: { _controller: BlogBundle:Post:insertkomentar }
+    methods: [POST]
+    

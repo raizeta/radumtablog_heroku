@@ -1,0 +1,63 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+{% block title %}BackBundle:List:index{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">List Of Post</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th style="width: 10px">ID</th>
+                      <th>Title</th>
+                      <th>Slug</th>
+                      <th>Create At</th>
+                      <th>Update At</th>
+                      <th>Visible</th>
+                      <th>Category</th>
+                      <th>Author</th>
+                      <th>Hits</th>
+                      <th>Show</th>     
+                      <th>Edit</th>
+                      <th>Delete</th>
+
+                    </tr>
+                    {% for entities in entities %}
+                    <tr>
+                      <td>{{entities.p_id}}</td>
+                      <td>{{entities.p_judul}}</td>
+                      <td>{{entities.p_slug}}</td>
+                      <td>{{entities.p_createAt|date('D, d/m/Y')}}</td>
+                      <td>{{entities.p_updateAt|date('D, d/m/Y')}}</td>
+                      <td>{{entities.p_visible}}</td>
+                      <td>{{entities.k_namaKategori}}</td>
+                      <td>{{entities.u_username}}</td>
+                      <td>{{entities.p_hits}} hits</td>
+                      <td>
+                        <a target="_blank" href="{{url('blog_show',{ 'slug': entities.p_slug })}}">Show</a>
+                      </td>
+                      <td><a href="{{path('edit_post',{'slug':entities.p_slug}) }}">Edit</a></td>
+                      <td><a href="{{path('delete_post',{'slug':entities.p_slug})}}">Delete</a></td>
+
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  {{ knp_pagination_render(entities) }}
+                </div>
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+{% endblock %}

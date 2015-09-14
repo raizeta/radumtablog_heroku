@@ -1,0 +1,3 @@
+blog_pdf:
+    path:     /pdf/{slug}
+    defaults: { _controller: PDFBundle:Default:index }

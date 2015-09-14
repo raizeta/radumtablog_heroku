@@ -1,0 +1,16 @@
+<div class="widget widget-popular">
+    <h3>Recent Comments</h3>
+    <div class="widget-blog-items">
+    {% for entity in entity %}
+        <div class="widget-blog-item media">
+            <div class="pull-left">  
+
+            </div>
+            <div class="media-body">
+                {{entity.k_isikomen}}</br>
+                on <h6><a href="">{{entity.p_judul}}</a></h6>
+            </div>
+        </div>
+    {% endfor %}
+    </div>                        
+</div>

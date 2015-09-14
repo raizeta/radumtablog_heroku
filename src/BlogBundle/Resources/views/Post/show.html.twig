@@ -1,0 +1,114 @@
+{% extends "FrontBundle::layout.html.twig" %}
+{% block kiri %}
+<div class="span8">
+    <div class="blog">
+    		{% for entity in entity %}
+	        <div class="blog-item well">
+	            <a href="{{url('blog_show',{ 'slug': entity.p_slug })}}"><h2>{{entity.p_judul}}</h2></a>
+	            <div class="blog-meta clearfix">
+	                <p class="pull-left">
+	                  <i class="icon-user"></i> by <a href="{{url('blog_show_by_author',{ 'penulis': entity.u_username })}}">{{entity.u_username}}</a> | 
+	                  <i class="icon-folder-close"></i> 
+	                  Category <a href="{{url('blog_show_by_kategori',{ 'kategori': entity.k_namaKategori })}}">{{entity.k_namaKategori}}</a> | 
+	                  <i class="icon-calendar"></i> {{entity.p_createAt|date('d/M/Y')}}
+	              	</p>
+	              	<p class="pull-right">
+	              		<i class="icon-download"></i> 
+	              		<a href="{{url('blog_pdf',{'slug':entity.p_slug})}}" target="_blank">Download As PDF</a> | 
+	              		
+		              	<i class="icon-comment pull"></i> 
+		              	<a href="">{{jlhkomentar}}  Comments</a>
+	      			</p>
+	          	</div>
+	         	{{entity.p_isi|raw}}
+	      	</div>
+	      	{% endfor %}
+	</div>
+
+	
+
+	<div class="blog">
+    	<div class="blog-item well">	
+    		<div id="comments" class="comments">
+            <h4>{{jlhkomentar}} Comments</h4> 
+	    		<div class="comments-list">
+	    		<div id="output">
+	    		{% for komentar in komentar %}
+	                <div class="comment media">
+	                    <div class="pull-left">
+	                        <img class="avatar" src=""  alt="" />  
+	                    </div>
+
+	                    <div class="media-body">
+	                        <strong>Posted by <a href="#">{{komentar.u_username}}</a></strong><br>
+	                        <small>{{komentar.k_createAt|date('D d/M/Y')}}</small><br>
+	                        {{komentar.k_isikomen}}
+	                    </div>
+	                </div>
+                {% endfor %}
+                </div>
+
+                	<div class="comment media">
+		                    <div class="pull-left">
+		                        <img class="avatar" src=""  alt="" />  
+		                    </div>
+		                    <div class="media-body">
+	                    	{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+		                    	<form id="komentar" method="post" action="{{path('blog_insert_komentar',{'slug':slug})  }}">
+			                    	<div>                
+			                    		<textarea id="kok" rows="5" cols="5" name="isikomen"></textarea>
+			                    		<div id="loading"></div>
+			                    	</div>
+			                    	<div>
+			                    		<button class="btn btn-primary" type="submit">Create</button>
+		                    		
+		                    	</form>
+	                    	{% endif %}
+		                    	</div>
+	                    	</div>
+	                </div>
+	      		
+	      	</div>
+      	</div>
+  	</div>
+</div>
+{% endblock kiri %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script>
+    function loading_show()
+    {
+        $('#loading').html("<img src='{{asset('nova/images/ajax-loader.gif')}}'/>").fadeIn('fast');
+    }
+    function loading_hide()
+    {
+        $('#loading').fadeOut('fast');
+    }
+
+	$('body').on('submit', '#komentar', function (e) 
+	{
+ 
+        e.preventDefault();
+
+        loading_show();
+        $.ajax
+        ({
+            type: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize()
+        })
+        .done(function (data) 
+        {
+            if (typeof data.message !== 'undefined') 
+            {
+                $('#output').html(data.message);
+                $('#kok').val('');
+                loading_hide();
+            }
+        })
+
+    });
+    </script>
+
+{% endblock %}

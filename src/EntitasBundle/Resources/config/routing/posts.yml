@@ -1,0 +1,30 @@
+posts:
+    path:     /
+    defaults: { _controller: "EntitasBundle:Posts:index" }
+
+posts_show:
+    path:     /{id}/show
+    defaults: { _controller: "EntitasBundle:Posts:show" }
+
+posts_new:
+    path:     /new
+    defaults: { _controller: "EntitasBundle:Posts:new" }
+
+posts_create:
+    path:     /create
+    defaults: { _controller: "EntitasBundle:Posts:create" }
+    methods:  POST
+
+posts_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EntitasBundle:Posts:edit" }
+
+posts_update:
+    path:     /{id}/update
+    defaults: { _controller: "EntitasBundle:Posts:update" }
+    methods:  [POST, PUT]
+
+posts_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EntitasBundle:Posts:delete" }
+    methods:  [POST, DELETE]

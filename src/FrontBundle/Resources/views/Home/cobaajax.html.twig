@@ -1,0 +1,24 @@
+{% block javascripts %}
+    {{parent()}}
+    <script>
+        $(document).ready(function() 
+        {
+            $.ajax({
+                    type: "post",
+                    url: "{{path('ajaxsiswaaction')}}",
+                    contentType: "application/json",
+                    dataType: "json",
+                    beforeSend: function()
+                    {
+                        $(".modal").show();
+                    },
+                    success: function(data)
+                    {
+                        $(".modal").hide();
+                        $('#output').html(data.form);
+                    }
+            });       
+        });
+    </script>
+
+{% endblock %}

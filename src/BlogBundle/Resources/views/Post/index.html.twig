@@ -1,0 +1,29 @@
+{% extends "FrontBundle::layout.html.twig" %}
+{% block kiri %}
+<div class="span8">
+    <div class="blog">
+	    {% for entity in entities %}
+	        <div class="blog-item well">
+	            <a href="{{url('blog_show',{ 'slug': entity.p_slug })}}"><h2>{{entity.p_judul}}</h2></a>
+	            <div class="blog-meta clearfix">
+	                <p class="pull-left">
+	                  <i class="icon-user"></i> by <a href="{{url('blog_show_by_author',{ 'penulis': entity.u_username })}}">{{entity.u_username}}</a> | 
+	                  <i class="icon-folder-close"></i> 
+	                  Category <a href="{{url('blog_show_by_kategori',{ 'kategori': entity.k_namaKategori })}}">{{entity.k_namaKategori}}</a> | 
+	                  <i class="icon-calendar"></i> {{entity.p_createAt|date('d/M/Y')}}
+	              	</p>
+	          	</div>
+	          	<p><img src="{{asset('nova/images/sample/blog1.jpg')}}" width="100%" alt="" /></p>
+	         	{{entity.p_isi|truncate(400,true)|raw}}
+	         	<br/>
+	          <a class="btn btn-link" href="{{url('blog_show',{ 'slug': entity.p_slug })}}">Read More 
+	          <i class="icon-angle-right"></i></a>
+	      	</div>
+	  	{% endfor %}
+
+      	<div class="pagination">
+            {{ knp_pagination_render(entities) }}
+        </div>
+	</div>
+</div>
+{% endblock kiri %}

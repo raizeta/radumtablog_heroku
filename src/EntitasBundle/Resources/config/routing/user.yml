@@ -1,0 +1,30 @@
+user:
+    path:     /
+    defaults: { _controller: "EntitasBundle:User:index" }
+
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: "EntitasBundle:User:show" }
+
+user_new:
+    path:     /new
+    defaults: { _controller: "EntitasBundle:User:new" }
+
+user_create:
+    path:     /create
+    defaults: { _controller: "EntitasBundle:User:create" }
+    methods:  POST
+
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EntitasBundle:User:edit" }
+
+user_update:
+    path:     /{id}/update
+    defaults: { _controller: "EntitasBundle:User:update" }
+    methods:  [POST, PUT]
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EntitasBundle:User:delete" }
+    methods:  [POST, DELETE]

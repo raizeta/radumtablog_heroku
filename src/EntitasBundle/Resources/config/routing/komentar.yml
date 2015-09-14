@@ -1,0 +1,30 @@
+blog_komentar:
+    path:     /
+    defaults: { _controller: "EntitasBundle:Komentar:index" }
+
+blog_komentar_show:
+    path:     /{id}/show
+    defaults: { _controller: "EntitasBundle:Komentar:show" }
+
+blog_komentar_new:
+    path:     /new
+    defaults: { _controller: "EntitasBundle:Komentar:new" }
+
+blog_komentar_create:
+    path:     /create
+    defaults: { _controller: "EntitasBundle:Komentar:create" }
+    methods:  POST
+
+blog_komentar_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EntitasBundle:Komentar:edit" }
+
+blog_komentar_update:
+    path:     /{id}/update
+    defaults: { _controller: "EntitasBundle:Komentar:update" }
+    methods:  [POST, PUT]
+
+blog_komentar_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EntitasBundle:Komentar:delete" }
+    methods:  [POST, DELETE]

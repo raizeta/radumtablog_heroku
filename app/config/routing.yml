@@ -1,0 +1,47 @@
+back:
+    resource: "@BackBundle/Resources/config/routing.yml"
+    prefix:   /dashboard
+
+entitas:
+    resource: "@EntitasBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+front:
+    resource: "@FrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pdf:
+    resource: "@PDFBundle/Resources/config/routing.yml"
+    prefix:   /
+   
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /auth/connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /auth/connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /auth/connect
+
+hwi_github_login:
+    pattern: /auth/check-github
+
+hwi_facebook_login:
+    pattern: /auth/check-facebook
+
+connect_github:
+    pattern:   /auth/connect/github
+    
+connect_facebook:
+    pattern:   /auth/connect/facebook
+

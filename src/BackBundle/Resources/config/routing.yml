@@ -1,0 +1,73 @@
+back_homepage:
+    path:     /admin
+    defaults: { _controller: BackBundle:Default:index }
+
+list_post:
+    path:     /admin/list/post
+    defaults: { _controller: BackBundle:List:listpost }
+
+list_user:
+    path:     /admin/list/user
+    defaults: { _controller: BackBundle:List:listuser }
+
+list_kategori:
+    path:     /admin/list/kategori
+    defaults: { _controller: BackBundle:List:listkategori }
+
+list_komentar:
+    path:     /admin/list/komentar
+    defaults: { _controller: BackBundle:List:listkomentar }
+
+list_visitor:
+    path:     /admin/list/visitor
+    defaults: { _controller: BackBundle:List:listvisitor }
+
+edit_post:
+    path:     /admin/post/edit/{slug}
+    defaults: { _controller: BackBundle:Posts:editPost }
+
+update_post:
+    path:     /admin/post/update/{slug}
+    defaults: { _controller: BackBundle:Posts:updatePost }
+
+new_post:
+    path:     /admin/post/new
+    defaults: { _controller: BackBundle:Posts:newPost }
+
+create_post:
+    path:     /admin/post/create
+    defaults: { _controller: BackBundle:Posts:create }
+    methods: [POST]
+
+delete_post:
+    path:     /admin/post/delete/{slug}
+    defaults: { _controller: BackBundle:Posts:delete }
+
+new_kategori:
+    path:     /admin/kategori/new
+    defaults: { _controller: BackBundle:Kategori:new }
+
+create_kategori:
+    path:     /admin/kategori/create
+    defaults: { _controller: BackBundle:Kategori:create }
+    methods: [POST]
+
+edit_kategori:
+    path:     /admin/kategori/edit/{namakategori}
+    defaults: { _controller: BackBundle:Kategori:edit }
+
+update_kategori:
+    path:     /admin/kategori/update/{namakategori}
+    defaults: { _controller: BackBundle:Kategori:update }
+
+delete_kategori:
+    path:     /admin/kategori/delete/{namakategori}
+    defaults: { _controller: BackBundle:Kategori:delete }
+
+delete_visitor:
+    path:     /admin/visitor/delete/{id}
+    defaults: { _controller: BackBundle:Statistik:delvisitor }
+
+data_table:
+    path:     /admin/visitor/datatable
+    defaults: { _controller: BackBundle:Statistik:datatable}

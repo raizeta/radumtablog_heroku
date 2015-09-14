@@ -1,0 +1,10 @@
+{% extends 'PDFBundle::layout.html.twig' %}
+{% block body %}
+        <h2>{{entity.judul}}</h2>
+        <div class="blog-meta clearfix">
+            <p class="pull-left">
+              <i class="icon-user"></i> by <a href="#">{{entity.penulis.username}}</a> | <i class="icon-folder-close"></i> Category <a href="#">{{entity.kategori.namakategori}}</a> | <i class="icon-calendar"></i> {{entity.createAt|date('D d/M/Y')}}
+          </p>
+      </div>
+      {{entity.isi|raw}}
+{% endblock body %}

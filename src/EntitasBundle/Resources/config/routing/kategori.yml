@@ -1,0 +1,30 @@
+kategori:
+    path:     /
+    defaults: { _controller: "EntitasBundle:Kategori:index" }
+
+kategori_show:
+    path:     /{id}/show
+    defaults: { _controller: "EntitasBundle:Kategori:show" }
+
+kategori_new:
+    path:     /new
+    defaults: { _controller: "EntitasBundle:Kategori:new" }
+
+kategori_create:
+    path:     /create
+    defaults: { _controller: "EntitasBundle:Kategori:create" }
+    methods:  POST
+
+kategori_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EntitasBundle:Kategori:edit" }
+
+kategori_update:
+    path:     /{id}/update
+    defaults: { _controller: "EntitasBundle:Kategori:update" }
+    methods:  [POST, PUT]
+
+kategori_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EntitasBundle:Kategori:delete" }
+    methods:  [POST, DELETE]

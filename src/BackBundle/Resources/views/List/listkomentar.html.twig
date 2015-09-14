@@ -1,0 +1,46 @@
+{% extends "BackBundle::layout.html.twig" %}
+
+{% block title %}BackBundle:List:index{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">List Of Comments</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th style="width: 10px">ID</th>
+                      <th>Isi Komentar</th>
+                      <th>Dikomen Pada</th>
+                      <th>Judul Post</th>
+                      <th>Dikomen Oleh</th>
+                    </tr>
+                    {% for entities in entities %}
+                    <tr>
+                      <td>{{loop.index}}</td>
+                      <td>{{entities.k_isikomen}}</td>
+                      <td>{{entities.k_createAt|date('D d/m/Y')}}</td>
+                      <td>{{entities.p_judul}}</td>
+                      <td>{{entities.u_username}}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  {{ knp_pagination_render(entities) }}
+                </div>
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+{% endblock %}

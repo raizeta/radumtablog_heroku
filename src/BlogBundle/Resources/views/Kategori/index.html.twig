@@ -1,0 +1,14 @@
+<div class="widget">
+    <h3>Blog Categories</h3>
+    <div>
+        <div class="row-fluid">
+            <div class="span6">
+                <ul class="unstyled">
+                {% for entities in entities %}
+                    <li><a href="{{url('blog_show_by_kategori',{ 'kategori': entities.namaKategori })}}">{{entities.namaKategori}}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>                       
+</div>

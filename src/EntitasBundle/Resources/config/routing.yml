@@ -1,0 +1,17 @@
+entitas_user:
+    resource: "@EntitasBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+entitas_kategori:
+    resource: "@EntitasBundle/Resources/config/routing/kategori.yml"
+    prefix:   /kategori
+
+entitas_blog_komentar:
+    resource: "@EntitasBundle/Resources/config/routing/komentar.yml"
+    prefix:   /blog/komentar
+
+entitas_posts:
+    resource: "@EntitasBundle/Resources/config/routing/posts.yml"
+    prefix:   /posts
+
+

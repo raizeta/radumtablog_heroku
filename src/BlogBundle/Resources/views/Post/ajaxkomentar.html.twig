@@ -1,0 +1,13 @@
+{% for komentar in komentar %}
+    <div class="comment media">
+        <div class="pull-left">
+            <img class="avatar" src=""  alt="" />  
+        </div>
+
+        <div class="media-body">
+            <strong>Posted by <a href="#">{{komentar.u_username}}</a></strong><br>
+            <small>{{komentar.k_createAt|date('D d/M/Y')}}</small><br>
+            {{komentar.k_isikomen}}
+        </div>
+    </div>
+{% endfor %}
